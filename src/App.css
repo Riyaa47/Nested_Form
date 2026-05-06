@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* ── Form Container ── */
+.form-container {
+  width: 100%;
+  max-width: 860px;
+}
+
+.form-header {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 28px 32px;
+}
+
+.form-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+form {
+  background: white;
+  border-radius: 0 0 12px 12px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Question Item ── */
+.question-item {
+  border-left: 3px solid #e0e7ff;
+  padding-left: 12px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+
+.question-item:hover {
+  border-left-color: #6366f1;
+}
+
+.question-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f8faff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.question-number {
+  font-weight: 700;
+  color: #4f46e5;
+  font-size: 0.9rem;
+  min-width: 44px;
+}
+
+.question-input {
+  flex: 1;
+  min-width: 160px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.question-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+.question-select,
+.answer-select {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.87rem;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.question-select:focus,
+.answer-select:focus {
+  border-color: #6366f1;
+}
+
+/* ── Children ── */
+.children-container {
+  margin-top: 10px;
+  padding-top: 6px;
+}
+
+/* ── Buttons ── */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.btn-add-child {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.btn-add-child:hover {
+  background: #bfdbfe;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+.btn-add {
+  background: #6366f1;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+}
+.btn-add:hover {
+  background: #4f46e5;
+}
+
+.btn-submit {
+  background: #059669;
+  color: white;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+}
+.btn-submit:hover {
+  background: #047857;
+}
+
+.btn-clear {
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 10px 16px;
+}
+.btn-clear:hover {
+  background: #e2e8f0;
+}
+
+.btn-back {
+  background: #6366f1;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  margin-top: 24px;
+}
+.btn-back:hover {
+  background: #4f46e5;
+}
+
+/* ── Form Actions ── */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-actions-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+  border: 2px dashed #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* ── Drag & Drop ── */
+.draggable-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.draggable-wrapper.dragging {
+  opacity: 0.85;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+.drag-handle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  cursor: grab;
+  padding-top: 14px;
+  user-select: none;
+  flex-shrink: 0;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* ── Submission View ── */
+.submission-view {
+  background: white;
+  border-radius: 12px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  max-width: 860px;
+  width: 100%;
+}
+
+.submission-view h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.submission-subtitle {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.submission-content {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px 24px;
+  background: #f8faff;
+  min-height: 120px;
+}
+
+.submission-item {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.submission-item p {
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.submission-type {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.empty-msg {
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px;
+}
